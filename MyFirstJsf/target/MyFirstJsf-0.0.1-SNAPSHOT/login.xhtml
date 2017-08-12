@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f ="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>JSF Hibenate Integration</h:head>
+<h:body>
+   <h:form>
+      <h:panelGrid Columns="2">
+         <h:outputText value="FirstName"/>
+         <h:inputText value="#{employeeBean.firstName}"/>
+         <h:outputText value="LastName"/>
+         <h:inputText value="#{employeeBean.lastName}"/>
+         <h:outputText value="DOB"/>
+         <h:inputText value="#{employeeBean.dob}"/>
+         <h:outputText value="Address"/>
+         <h:inputText value="#{employeeBean.address}"/>
+         <h:outputText value="ZipCode"/>
+         <h:inputText value="#{employeeBean.zipCode}"/>
+         <h:outputText value="State"/>
+         <h:inputText value="#{employeeBean.state}"/>
+         <h:outputText value="City"/>
+         <h:inputText value="#{employeeBean.city}"/>
+       </h:panelGrid>
+    <h:commandButton action="#{employeeBean.Save}" value="Add"/>
+    <h:commandButton action="#{employeeBean.reset}" value="Reset"/>
+     <h:commandButton action="#{employeeBean.searchState}" value="Search"/>
+  </h:form>
+  <h:dataTable value="#{employeeBean.listEmployees}" var="employee">
+       
+       <h:column>
+         <f:facet name="header">FirstName</f:facet>
+         <h:outputText value="#{employee.firstName}" />
+       </h:column>
+       <h:column>
+         <f:facet name="header">LastName</f:facet>
+         <h:outputText value="#{employee.lastName}" />
+       </h:column>
+       <h:column>
+         <f:facet name="header">DOB</f:facet>
+         <h:outputText value="#{employee.dob}" />
+       </h:column>
+       <h:column>
+         <f:facet name="header">Address</f:facet>
+         <h:outputText value="#{employee.address}" />
+       </h:column>
+       <h:column>
+         <f:facet name="header">ZipCode</f:facet>
+         <h:outputText value="#{employee.zipCode}" />
+       </h:column>
+       <h:column>
+         <f:facet name="header">State</f:facet>
+         <h:outputText value="#{employee.state}" />
+       </h:column>
+       <h:column>
+         <f:facet name="header">City</f:facet>
+         <h:outputText value="#{employee.city}" />
+       </h:column>
+      
+</h:dataTable>
+
+</h:body>
+</html>

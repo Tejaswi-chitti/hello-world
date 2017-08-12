@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	Its a JSF demo Page
+	</h:head>
+<h:body>
+	<h:form id="LoginForm">
+		<h:messages />
+		<h:panelGrid cloumns="2">
+			<h:outputLabel value="userName" />
+			<h:inputText value="#{login.userName}"	id="userId" />
+				
+			<h:outputText value="password" />
+			<h:inputSecret value="#{login.password}" />
+
+			<h:outputText value="Credit Card Number" />
+			<h:inputSecret value="#{login.creditCard}" converter="creditCardConverter">
+			     <f:validateRegex pattern="\d{16}/\d{4}\d{4}\d{4}\d{4}/\d{4}-\d{4}-\d{4}-\d{4}" />
+			</h:inputSecret>
+		</h:panelGrid>
+		<h:commandButton action="#{login.actionOpen}" value="Login" />
+		<h:commandButton action="#{login.actionClear}" value="Clear" immediate="true" />
+	</h:form>
+</h:body>
+</html>
